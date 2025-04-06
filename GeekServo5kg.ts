@@ -105,6 +105,8 @@ namespace GeekServo5kg {
         }
     }
 
+    /*************************************************** ELECFREAKS WUKONG ******************************************/
+    
     //% weight=98 color="#1ec7ff"
     //% blockId=setGeekServo5kSpeed block="Set GeekServo 5kg %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
@@ -147,6 +149,9 @@ namespace GeekServo5kg {
         }
     }
 
+    /* !!!!!!!!!!!!!!!!!!!!!
+    *  NOT WORKING PROPERLY :'(
+    *  !!!!!!!!!!!!!!!!!!!!! */
     //% weight=49 color="#1e60ff"
     //% group="ELECFREAKS WUKONG"
     //% blockId=setWuKongGeekServo5k block="Set GeekServo 5kg %servo angle to %angle"
