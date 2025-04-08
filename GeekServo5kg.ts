@@ -64,7 +64,7 @@ namespace GeekServo5kg {
 
 
     //% weight=99 color="#1e60ff"
-    //% blockId=setGeekServo5k block="Set GeekServo 5kg %servo angle to %angle"
+    //% blockId=setGeekServo5k block="Set GeekServo 5kg (Servo Mode) %servo angle to %angle"
     //% angle.min=0 angle.max=360
     export function setGeekServo5kAngle(servo: PortList, angle: number): void {
         let pulse = Math.round(Math.map(angle, 0, 360, 500, 2500))
@@ -105,10 +105,8 @@ namespace GeekServo5kg {
         }
     }
 
-    /*************************************************** ELECFREAKS WUKONG ******************************************/
-    
     //% weight=98 color="#1ec7ff"
-    //% blockId=setGeekServo5kSpeed block="Set GeekServo 5kg %servo speed to %speed\\%"
+    //% blockId=setGeekServo5kSpeed block="Set GeekServo 5kg (Motor Mode) %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
     export function setGeekServo5kSpeed(servo: PortList, speed: number): void {
         let pulse = Math.round(Math.map(speed, -100, 100, 3000, 5000))
@@ -149,12 +147,11 @@ namespace GeekServo5kg {
         }
     }
 
-    /* !!!!!!!!!!!!!!!!!!!!!
-    *  NOT WORKING PROPERLY :'(
-    *  !!!!!!!!!!!!!!!!!!!!! */
+    /*************************************************** ELECFREAKS WUKONG ******************************************/
+
     //% weight=49 color="#1e60ff"
     //% group="ELECFREAKS WUKONG"
-    //% blockId=setWuKongGeekServo5k block="Set GeekServo 5kg %servo angle to %angle"
+    //% blockId=setWuKongGeekServo5k block="Set GeekServo 5kg (Servo Mode) %servo angle to %angle"
     //% angle.min=0 angle.max=360
     export function setWuKongGeekServo5kAngle(servo: ServoList, angle: number): void {
         let buf = pins.createBuffer(4);
@@ -191,9 +188,11 @@ namespace GeekServo5kg {
         pins.i2cWriteBuffer(board_address, buf);
     }
 
-    //% weight=47 color="#1ec7ff"
+    /*
+    // Wukong frequency PWM waveform output for pulse 2000-5000  is not defined in the I2C command.
+    //% weight=48 color="#1ec7ff"
     //% group="ELECFREAKS WUKONG"
-    //% blockId=setWuKongGeekServo5kSpeed block="Set GeekServo 5kg %servo speed to %speed\\%"
+    //% blockId=setWuKongGeekServo5kSpeed block="Set GeekServo 5kg (Motor Mode) %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
     export function setWuKongGeekServo5kSpeed(servo: ServoList, speed: number): void {
         let buf = pins.createBuffer(4);
@@ -228,8 +227,9 @@ namespace GeekServo5kg {
         buf[2] = 0;
         buf[3] = 0;
         pins.i2cWriteBuffer(board_address, buf);
-    }
+    }*/
 
+    /* FOR TESTING PURPOSES
     //% weight=47 color="#111111"
     //% group="ELECFREAKS WUKONG"
     //% blockId=testWuKong block="Set GeekServo 5kg %servo I2C buf[1] to %speed"
@@ -264,5 +264,5 @@ namespace GeekServo5kg {
         buf[2] = 0;
         buf[3] = 0;
         pins.i2cWriteBuffer(board_address, buf);
-    }
+    }*/
 }
